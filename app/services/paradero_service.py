@@ -20,7 +20,7 @@ class ParaderoService:
         return await paradero_repository.find_by_ids(ids)
 
     async def agregar_ruta_a_paradero(self, paradero_id: str, ruta_resumen: dict) -> None:
-        await self.obtener_paradero(paradero_id)  # valida que exista
+        await self.obtener_paradero(paradero_id)
         await paradero_repository.agregar_ruta(paradero_id, ruta_resumen)
 
     async def quitar_ruta_de_paradero(self, paradero_id: str, ruta_id: str) -> None:
@@ -28,7 +28,7 @@ class ParaderoService:
         await paradero_repository.quitar_ruta(paradero_id, ruta_id)
 
     async def valida_conexion(self, paradero_id: str, ruta_id: str) -> bool:
-        await self.obtener_paradero(paradero_id)  # 404 si el paradero no existe
+        await self.obtener_paradero(paradero_id)
         return await paradero_repository.existe_ruta_en_paradero(paradero_id, ruta_id)
 
 

@@ -7,15 +7,12 @@ from app.core.exceptions import NotFoundException, ValidationException
 
 class ServicioService:
     async def crear_servicio(self, data: dict) -> dict:
-        # 1. Validar que la ruta exista antes de crear el servicio
         ruta = await ruta_repository.obtener_por_id(data["ruta_id"])
         if not ruta:
             raise ValidationException(f"La ruta {data['ruta_id']} no existe")
 
-        # 2. Crear el servicio
         servicio = await servicio_repository.crear(data)
 
-        # 3. Propagar la ruta a cada paradero involucrado
         ruta_resumen = {
             "ruta_id": ruta["id"],
             "nombre": ruta["nombre"],

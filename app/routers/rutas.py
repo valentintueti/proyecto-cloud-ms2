@@ -1,6 +1,6 @@
 from typing import Optional, List
 from fastapi import APIRouter, Query
-from app.schemas.ruta_schema import RutaCreate, RutaResponse
+from app.schemas.ruta_schemas import RutaCreate, RutaResponse
 from app.services.ruta_service import ruta_service
 
 router = APIRouter(prefix="/rutas", tags=["Rutas"])

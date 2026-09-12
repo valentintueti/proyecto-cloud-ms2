@@ -1,6 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Query
-from app.schemas.paradero_schema import (
+from app.schemas.paradero_schemas import (
     ParaderoCreate, ParaderoResponse, ValidaConexionResponse
 )
 from app.services.paradero_service import paradero_service

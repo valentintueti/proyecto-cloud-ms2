@@ -23,7 +23,6 @@ class ParaderoRepository:
         return [documento_a_dict(doc) async for doc in cursor]
 
     async def agregar_ruta(self, paradero_id: str, ruta_resumen: dict) -> None:
-        # $addToSet evita duplicados si el servicio se vuelve a crear con la misma ruta
         await paraderos_collection.update_one(
             {"_id": paradero_id},
             {"$addToSet": {"rutas": ruta_resumen}}

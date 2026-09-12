@@ -20,7 +20,7 @@ class RutaService:
         return await ruta_repository.find_by_ids(ids)
 
     async def actualizar_ruta(self, ruta_id: str, cambios: dict) -> dict:
-        await self.obtener_ruta(ruta_id)  # valida que exista, lanza 404 si no
+        await self.obtener_ruta(ruta_id)
         return await ruta_repository.actualizar(ruta_id, cambios)
 
     async def eliminar_ruta(self, ruta_id: str) -> None:

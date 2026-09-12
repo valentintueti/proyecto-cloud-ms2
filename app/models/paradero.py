@@ -18,7 +18,7 @@ class Paradero:
     def __init__(
         self,
         nombre: str,
-        ubicacion: dict,          # {"lat": float, "lng": float}
+        ubicacion: dict,
         rutas: List[RutaResumen],
         _id: Optional[str] = None
     ):

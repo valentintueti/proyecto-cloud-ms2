@@ -1,6 +1,6 @@
 from typing import Optional, List
 from fastapi import APIRouter, Query
-from app.schemas.servicio_schema import ServicioCreate, ServicioResponse
+from app.schemas.servicio_schemas import ServicioCreate, ServicioResponse
 from app.services.servicio_service import servicio_service
 
 router = APIRouter(prefix="/servicios", tags=["Servicios"])
@@ -8,7 +8,7 @@ router = APIRouter(prefix="/servicios", tags=["Servicios"])
 
 @router.post("/", response_model=ServicioResponse, status_code=201)
 async def crear_servicio(servicio: ServicioCreate):
-    data = servicio.model_dump(mode="json")  # mode="json" serializa date/time a str
+    data = servicio.model_dump(mode="json")
     return await servicio_service.crear_servicio(data)
 
 
