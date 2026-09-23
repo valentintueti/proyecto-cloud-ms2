@@ -1,10 +1,15 @@
+import os
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from app.routers import rutas, servicios, paraderos
 from app.core.exceptions import NotFoundException, ValidationException, ConflictException
 
-app = FastAPI(title="MS2 - Servicios", version="1.0.0")
+app = FastAPI(
+    title="MS2 - Servicios", 
+    version="1.0.0",
+    root_path=os.getenv("ROOT_PATH", "")
+)
 
 
 @app.exception_handler(NotFoundException)
